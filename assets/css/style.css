@@ -1,0 +1,298 @@
+/**
+ * WCBW Pro - Estilos del Wizard (Soma Salud Theme)
+ */
+
+:root {
+    /* Paleta de Colores Soma Salud */
+    --soma-azul:   #00233C;
+    --soma-rojo:   #952127;
+    --soma-texto:  #2C2C2C;
+    --soma-fondo:  #E1F1FC;
+    --soma-blanco: #FFFFFF;
+}
+
+/* 1. Contenedor Principal */
+.wcbw-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--soma-blanco);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 35, 60, 0.08); /* Sombra suave con tono azul */
+    font-family: inherit;
+    color: var(--soma-texto);
+    overflow: hidden;
+    border: 1px solid var(--soma-fondo);
+}
+
+.wcbw-wrapper h3, 
+.wcbw-wrapper h4 {
+    color: var(--soma-azul);
+    margin-top: 0;
+}
+
+/* 2. Barra de Pasos Superior */
+.wcbw-steps {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: var(--soma-fondo);
+    border-bottom: 1px solid #d1e5f5;
+}
+
+.wcbw-steps li {
+    flex: 1;
+    text-align: center;
+    padding: 15px 10px;
+    color: var(--soma-azul);
+    font-weight: 600;
+    font-size: 15px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.wcbw-steps li.active {
+    opacity: 1;
+    background: var(--soma-blanco);
+    border-bottom: 3px solid var(--soma-rojo); /* Énfasis en el paso activo */
+    color: var(--soma-rojo);
+}
+
+/* 3. Contenido de los Pasos */
+.wcbw-content {
+    padding: 30px;
+}
+
+.step-pane {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.step-pane.active {
+    display: block;
+}
+
+.step-header, .booking-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--soma-fondo);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.booking-header h3 {
+    margin: 0;
+}
+
+/* 4. Tarjetas de Especialidad */
+#specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.spec-card {
+    border: 2px solid var(--soma-fondo);
+    border-radius: 8px;
+    padding: 20px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background: var(--soma-blanco);
+}
+
+.spec-card img {
+    max-width: 60px;
+    height: auto;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.spec-card h4 {
+    font-size: 14px;
+    margin: 0;
+    color: var(--soma-texto);
+}
+
+/* Efectos Hover y Selección */
+.spec-card:hover {
+    border-color: var(--soma-azul);
+    box-shadow: 0 4px 10px rgba(0, 35, 60, 0.1);
+    transform: translateY(-2px);
+}
+
+.spec-card.selected {
+    border-color: var(--soma-rojo);
+    background: var(--soma-fondo);
+}
+.spec-card.selected h4 {
+    color: var(--soma-rojo);
+    font-weight: bold;
+}
+
+/* 5. Botones y Controles */
+.btn-action {
+    background: var(--soma-rojo);
+    color: var(--soma-blanco);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s;
+    width: 100%;
+    max-width: 250px;
+}
+
+.btn-action:hover:not(:disabled) {
+    background: var(--soma-azul);
+}
+
+.btn-action:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+.btn-back {
+    background: transparent;
+    border: 1px solid var(--soma-rojo);
+    color: var(--soma-rojo);
+    padding: 6px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn-back:hover {
+    background: var(--soma-rojo);
+    color: var(--soma-blanco);
+}
+
+/* 6. Calendario y Horas */
+.date-controls {
+    margin-bottom: 25px;
+}
+
+.doctor-row {
+    background: #fafafa;
+    border: 1px solid var(--soma-fondo);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.doc-info {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--soma-fondo);
+}
+
+.doc-info strong {
+    color: var(--soma-azul);
+    font-size: 16px;
+}
+
+.doc-info small {
+    color: var(--soma-rojo);
+    font-weight: 600;
+    display: block;
+    margin-top: 5px;
+}
+
+.time-btn {
+    background: var(--soma-blanco);
+    border: 1px solid var(--soma-azul);
+    color: var(--soma-azul);
+    padding: 10px 15px;
+    margin: 5px 5px 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.time-btn:hover {
+    background: var(--soma-azul);
+    color: var(--soma-blanco);
+}
+
+/* 7. Formularios y Resumen */
+.form-row {
+    margin-bottom: 20px;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--soma-azul);
+    font-size: 14px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: var(--soma-texto);
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--soma-azul);
+    box-shadow: 0 0 0 2px var(--soma-fondo);
+}
+
+.wcbw-summary {
+    background: var(--soma-fondo);
+    padding: 20px;
+    border-left: 4px solid var(--soma-rojo);
+    margin: 30px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.wcbw-summary p {
+    margin: 5px 0;
+    color: var(--soma-texto);
+}
+
+/* 8. Alertas y Utilidades */
+.alert-box {
+    background: #fff3f3;
+    color: var(--soma-rojo);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ffcccc;
+    text-align: center;
+}
+
+.spinner {
+    text-align: center;
+    color: var(--soma-azul);
+    padding: 20px;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .wcbw-steps li {
+        font-size: 13px;
+        padding: 10px 5px;
+    }
+    .wcbw-content {
+        padding: 20px;
+    }
+    .btn-action {
+        max-width: 100%;
+    }
+}
